@@ -1,0 +1,43 @@
+{%extends "base.html"%}
+{%block title%}
+Blog details
+{%endblock title%}
+
+{%block body%}
+<div class="container ">
+    <div class="card text-center" style="width: 60rem;">
+
+
+        <img class="card-img-top" src="/media/{{blog.image}}" alt="Card image cap" style="height: 600px;">
+
+        <h1 class="lead"> {{blog.title}}</h1>
+        <hr>
+        <p class="text-muted">
+            {{blog.description}}
+        </p>
+        <hr>
+        <p>
+            Created By <i>{{blog.author}}</i> <br> Date {{blog.Create_date}}
+        </p>
+
+        <p class="alert alert-light">
+            {{blog.tags}}
+        </p>
+        <div class="col-md-4 mb-3">
+
+            <a href="{% url 'blogs' %}" class="btn" target="_blank">
+                <button class="btn btn-success " type="button">Go Back</button>
+            </a>
+            <a href="/edit/{{blog.id}}" class="btn" target="_blank">
+                <button class="btn btn-success " type="button">Edit</button>
+            </a>
+            
+            <a href="/del/{{blog.id}}" class="btn " target="_blank">
+                <button class="btn bg-danger " type="button">delete</button>
+            </a>
+
+        </div>
+
+    </div>
+</div>
+{%endblock body%}

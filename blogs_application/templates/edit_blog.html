@@ -1,0 +1,40 @@
+{%extends "base.html"%}
+{% block title %}
+{% endblock title %}
+
+{% block body %}
+<form  method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+
+<div class="col-sm-4 mx-auto">
+
+<div  class="p-3 mb-3">
+    <label for="exampleFormControlInput1"  class="form-label">Title</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="title" value={{blog.title}}>
+  </div>
+  <div class="p-3 mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="6">{{blog.description}}</textarea>
+    </div>
+    <div class="p-3 mb-3">
+      <label for="exampleFormControlInput2" class="form-label">Author</label>
+            <input type="text" class="form-control" id="exampleFormControlInput2" value={{blog.author}} name="author" >
+    </div>
+    <div class="p-3 mb-3 row">
+        <label for="exampleFormControlInput1" class="form-label">Tags</label>
+        <input type="text" class="form-control" value="{{blog.tags}}" name="tags" id="exampleFormControlInput1">
+      </div>
+      <div class="p-3 mb-3 row">
+        <label for="exampleFormControlInput1" class="form-label">Image</label>
+        <p>Current image: <a href="{{blog.image.url}}" target="_blank">{{blog.image}}</a></p>
+        
+
+        <input type="file" class="image" name="image" value={{blog.image}} id="exampleFormControlInput1">
+      </div>
+    <div class="d-grid gap-10 col-6 mx-auto">
+        <button class="btn btn-primary" type="submit">save</button>
+      </div>
+    </form>
+{% endblock body %}
+
+                

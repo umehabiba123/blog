@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}
+catogries
+{% endblock title %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        
+        {% for blog in category %}
+        
+        <div class="col-md-4">
+            <div class=" text-center mb-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="/media/{{blog.image}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{blog.title}}</h5>
+                        <p class="card-title">Posted on {{blog.Create_date}} by {{blog.author}}</p>
+                        <p class="card-text">{{blog.description | truncatechars:10}}</p>
+                        <a href="/read/{{blog.id}}" class="btn btn-primary">
+                            <button class="btn btn-primary" type="button">Read more</button>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}
